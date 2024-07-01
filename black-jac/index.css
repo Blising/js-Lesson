@@ -1,0 +1,25 @@
+body {
+    background-image: url("./img/black_jack_back.png");
+    background-size: cover;
+    text-align: center;
+    justify-content: center;
+
+
+}
+
+h1,
+p,
+button {
+    justify-content: center;
+    color: white;
+    font-size: xx-large;
+
+}
+
+h1 {}
+
+button {
+    background-color: black;
+    cursor: pointer;
+
+}
