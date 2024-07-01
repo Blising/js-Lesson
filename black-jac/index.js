@@ -11,7 +11,7 @@ sumelement.textContent = ' '
 
 
 function startGame() {
-    let first_card = Math.floor(Math.random() * 10) + 1;
+    let first_card = Math.floor(Math.random() * 20) + 1;
     let second_card = Math.floor(Math.random() * 10) + 1;
 
 
@@ -20,8 +20,8 @@ function startGame() {
     sumelement = first_card + second_card;
     let buttonStart = document.getElementById('btnEl')
     if (sumelement <= 20) {
-        cardEl.textContent = 'Cards :' + first_card + " " + second_card
-        message = "Do you want to draw a new card?"
+        cardEl.textContent = 'CARDS :' + first_card + " " + second_card
+        message = "Do you want to draw a new CARD?"
         buttonStart.textContent = 'Try again'
 
 
@@ -29,15 +29,15 @@ function startGame() {
 
     } else if (sumelement === 21) {
         cardEl.textContent = 'Cards :' + first_card + " " + second_card
-        message = "You Winner You've got Blackjack!"
+        message = "You are  WINNER, You've got Blackjack!"
         hasBlackJack = true
-        buttonStart.textContent = "  once else?"
+        buttonStart.textContent = "ONCE ELSE?"
 
 
 
     } else {
-        cardEl.textContent = 'Cards :' + first_card + " " + second_card
-        message = "You're out of the game!"
+        cardEl.textContent = 'CARDS :' + first_card + " " + second_card
+        message = "You're OUT of the GAME!"
         buttonStart.textContent = 'Try again'
         isAlive = false
 

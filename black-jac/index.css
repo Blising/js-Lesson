@@ -1,15 +1,21 @@
 body {
-    background-image: url("./img/black_jack_back.png");
+    background-image: url("./img/ray.jpg");
     background-size: cover;
     text-align: center;
     justify-content: center;
 
 
 }
-
+#divGame{
+    background-color: rgb(212 184 37);
+    width: auto;
+    height: auto;
+    margin: 10%;
+    border-radius: 10px;
+}
 h1,
 p,
-button {
+button,h4 {
     justify-content: center;
     color: white;
     font-size: xx-large;
@@ -19,7 +25,7 @@ button {
 h1 {}
 
 button {
-    background-color: black;
+    background-color: rgb(154 153 167);
     cursor: pointer;
 
 }
