@@ -6,6 +6,18 @@ body {
 
 
 }
+
+#button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+#live-el{
+    width: 100%;
+height: auto;
+background-color: rgb(215 89 101);
+color:white;
+}
 #divGame{
     background-color: rgb(212 184 37);
     width: auto;
@@ -15,17 +27,38 @@ body {
 }
 h1,
 p,
-button,h4 {
+h4 {
     justify-content: center;
     color: white;
     font-size: xx-large;
 
+
 }
 
-h1 {}
-
 button {
-    background-color: rgb(154 153 167);
-    cursor: pointer;
+    width: 200px;
+    height: 100px;
+    background-color:rgb(126 121 133) ;
+    border-radius:10px;
+    background-color:aliceblue;
+    color:rgb(213 88 100);
+    font-size: xx-large;
 
+}
+#button-container {
+    width: auto;
+    height: auto;
+    height: auto;
+    border-radius: 10px;
+
+
+    background-color:rgb(145 82 57) ;
+background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: fixed; /* Фіксована позиція */
+    bottom: 20px; /* Відступ знизу, можна змінювати за потреби */
+    left: 50%;
+    transform: translateX(-50%);
 }
