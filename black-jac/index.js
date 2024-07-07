@@ -1,5 +1,12 @@
-let isAlive = true;
+let isAlive = false;
 let hasBlackJack = false;
+let playerChips = 145;
+let  playerEL = document.getElementById('player-el')
+
+
+let cards = []
+let buttonStart = document.getElementById('btnEl');
+let btnAdd = document.getElementById('addCard')
 let message = "";
 let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById('sum-el');
@@ -7,20 +14,54 @@ let cardEl = document.getElementById('card-el');
 let live_el = document.getElementById('live-el');
 let winner = 0;
 let btnBuy = document.getElementById('buy-btn');
+let userNick = document.getElementById('gameNick');
+let idGamer = document.getElementById('idGamer');
+let player = {
+    name:"Kobi",
+    chips: 1,
+    id:12124415870 ,
+    sayHello: function (){
+        helloUSer.textContent  = "Hello" +player.name    }
 
+}
+let  helloUSer = document.getElementById('Hello-el')
 let countlive = 2;
 
 
+
+let sum = 0
+let storedUser = JSON.parse(localStorage.getItem('user'));
+if (storedUser) {
+    document.getElementById('infoUser').textContent = "Email: " + storedUser.email + " Password: " + storedUser.password;
+}
+userNick.textContent = "Nick: " + " " + player.name
+playerEL.textContent = "$: "+  player.chips
+
+player.sayHello()
+
 function startGame() {
+    let first_card = getRandomCard()
+    let second_card = getRandomCard()
+    cards = [first_card,second_card]
+    sum = first_card + second_card
+    isAlive = true
+    
+    first_card = Math.floor(Math.random()*13) + 1 
+    second_card =  Math.floor(Math.random()*13) + 1 
+    renderGame();
 
 
-    let first_card = Math.floor(Math.random() * 10) + 1;
-    let second_card = Math.floor(Math.random() * 10) + 1;
 
-    // let first_card = 10;
-    // let second_card = 11;
-    let sum = first_card + second_card;
-    let buttonStart = document.getElementById('btnEl');
+
+}
+function renderGame() {
+    cardEl.textContent = "Cards: "
+    for (let i = 0; i < cards.length; i++) {
+        cardEl.textContent += cards[i] + " "
+    }
+    sumEl.textContent = "Sum : " + sum
+    // let first_card = Math.floor(Math.random() * 10) + 1;
+    // let second_card = Math.floor(Math.random() * 10) + 1;
 
     if (sum <= 20) {
         Swal.fire({
@@ -32,14 +73,10 @@ function startGame() {
             imageAlt: 'You Loose',
 
         })
-
-        cardEl.textContent = 'CARDS: ' + first_card + " " + second_card;
         message = "Do you want to draw a new CARD?";
-        buttonStart.textContent = 'AGAIN';
-
+        buttonStart.textContent = 'START';
         live_el.textContent = "Tries left: " + countlive;
-
-
+        btnAdd.style.display = 'block';
     } else if (sum === 21) {
         Swal.fire({
             title: 'Вітаємо!',
@@ -49,20 +86,15 @@ function startGame() {
             imageHeight: 150,
             imageAlt: 'Custom image',
         });
-        cardEl.textContent = 'CARDS: ' + first_card + " " + second_card;
-        message = "You are WINNER, You've got Blackjack!";
-        hasBlackJack = true;
-        buttonStart.textContent = "AGAIN?";
+
+        message = "You are WINNER !";
+        buttonStart.textContent = "START";
         live_el.textContent = "Tries left" + countlive
-        console.log(++winner);
-
-
-
-
+        hasBlackJack = true
     } else {
-        cardEl.textContent = 'CARDS: ' + first_card + " " + second_card;
+        cardEl.textContent = 'CARDS: ' + cards[0] + cards[1]
         message = "GAME OVER";
-        buttonStart.textContent = 'AGAIN';
+        buttonStart.textContent = 'START';
         isAlive = false;
     }
     messageEl.textContent = message;
@@ -80,9 +112,6 @@ function startGame() {
 
 }
 
-
-
-
 function addTries() {
     countlive = 3;
     live_el.textContent = "Tries left: " + countlive;
@@ -90,6 +119,8 @@ function addTries() {
     btnEl.style.display = 'block';
     btnBuy.removeEventListener('click', addTries); // Вилучаємо обробник після використання
 }
+
+
 
 function reset() {
     sumEl.textContent = "Want to play a round?";
@@ -103,3 +134,32 @@ function reset() {
     btnEl.style.display = 'block';
 
 }
+function getRandomCard() {
+    let cardsRundom = Math.floor(Math.random() * 13) + 1
+    if(cardsRundom >10 ){
+        return 10
+    }else if(cardsRundom ===1){
+        return 11
+    }else{
+        return cardsRundom;
+    }
+}
+function newCard() {
+    if(isAlive ===true && hasBlackJack ===false){
+
+  
+
+    let card = getRandomCard()
+    sum += card
+    cards.push(card)
+    console.log(cards)
+    renderGame()
+}
+}
+
+
+
+player.sayHello();
+
+
+

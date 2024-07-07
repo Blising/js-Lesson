@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body{
+            display: flex;
+            background-color: bisque;
+            justify-content: center;
+
+        }
+        form{
+            justify-content: center;
+            border-radius: 10px;
+            border-color: black;
+            margin: 15%;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <label for="firstName">First Name</label>
+        <input id="firstName-el" type="text" placeholder="First Name" />
+        
+        <label for="lastName">Last Name</label>
+        <input id="lastName-el" type="text" placeholder="Last Name" />
+        
+        <label for="email">Email</label>
+        <input id="email-el" type="email" placeholder="Email" />
+        
+        <label for="password">Password</label>
+        <input id="password-el" type="password" placeholder="Password" />
+      <a href="index.html">
+        <button id="btnSave" type="button" onclick="onSave()">Save</button>
+      </a>
+      
+    </form>
+    <p id="infoUser">Info:</p>
+
+
+
+        <script>
+            function onSave() {
+                let firstNameUser = document.getElementById('firstName-el').value;
+                let lastNameUser = document.getElementById('lastName-el').value;
+                let emailUser = document.getElementById('email-el').value;
+                let passwordUser = document.getElementById('password-el').value;
+    
+                let user = {
+                    firstName: firstNameUser,
+                    lastName: lastNameUser,
+                    email: emailUser,
+                    password: passwordUser
+                };
+    
+                localStorage.setItem('user', JSON.stringify(user));
+                window.location.href = 'index.html'; // перенаправлення на сторінку гри
+            }
+        </script>
+
+</body>
+</html>
