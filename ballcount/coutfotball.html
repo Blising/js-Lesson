@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            border-radius: 20px;
+            margin: 10%;
+            max-width: 80%;
+            max-height: 80%;
+            display: flex;
+            background-color: rgb(27, 35, 74);
+            justify-content: space-around;
+            size: 20sp;
+            color: rgb(238, 238, 238);
+            text-align: justify;
+            justify-items: flex-start;
+        }
+        
+        h3 {
+            color: rgb(238, 238, 238);
+        }
+        
+        h4 {
+            width: auto;
+            height: auto;
+            text-align: center;
+            border-color: rgb(9, 0, 1);
+            border-radius: 10px;
+            margin: 5%;
+            background-color: rgb(9, 0, 1);
+            color: rgb(249, 79, 109);
+        }
+        
+        button {
+            color: rgb(247, 248, 251);
+            background-color: rgb(27, 36, 74);
+            border-color: aliceblue;
+            border-radius: 10px;
+        }
+        
+        body {
+            margin: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="right">
+            <h3>HOME</h3>
+            <h4 id="home">0</h4>
+            <div>
+                <button onclick="plusone()">+1</button>
+                <button onclick="plustwo()">+2</button>
+                <button onclick="plustree()">+3</button>
+            </div>
+            <br/>
+            <button onclick="reset()">reset</button>
+        </div>
+        <div>
+            <h3>GUESTS</h3>
+            <h4 id="gues">0</h4>
+            <div>
+                <button onclick="plusoneGues()">+1</button>
+                <button onclick="pluswtwoGues()">+2</button>
+                <button onclick="plustreeGues()">+3</button>
+            </div>
+            <br/>    
+            <button onclick="resetGues()">reset</button>
+        </div>
+    </div>
+    <script>
+        let num1 = 0;
+let num2 = 0;
+let sumEl = document.getElementById('home');
+let sumGues = document.getElementById('gues');
+
+function plusone() {
+    sumEl.textContent = num1 += 1;
+}
+function plustwo() {
+    sumEl.textContent = num1 += 2;
+}
+function plustree() {
+    sumEl.textContent = num1 += 3;
+}
+
+function plusoneGues() {
+    sumGues.textContent = num2 += 1;
+}
+function pluswtwoGues() {
+    sumGues.textContent = num2 += 2;
+}
+function plustreeGues() {
+    sumGues.textContent = num2 += 3;
+}
+function reset() {
+    sumEl.textContent = num1 = 0;
+}
+function resetGues() {
+    sumGues.textContent = num2 = 0;
+}
+
+    </script>
+</body>
+</html>
